@@ -24,6 +24,9 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>		
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -32,10 +35,6 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
-
-		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -43,9 +42,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-		<PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.49" />
-		<PackageReference Include="Microsoft.Maui.Maps" Version="7.0.49" />
+	  <MauiImage Remove="Resources\Images\dotnet_bot.svg" />
 	</ItemGroup>
-
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\dotnet_bot.svg" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Microsoft.Maui.Maps" />
+	  <None Remove="Microsoft.Maui.Controls.Maps" />
+	  <None Remove="Microsoft.Extensions.Logging.Abstractions" />
+	  <None Remove="Microsoft.Extensions.Logging.Debug" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Maui.Maps" Version="7.0.49" />
+	  <PackageReference Include="Microsoft.Maui.Controls.Maps" Version="7.0.49" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0-rc.2.22472.3" />
+	</ItemGroup>
 </Project>
