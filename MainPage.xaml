@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiMapTest.MainPage"
+             Title="MapPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Map x:Name="map"
+             IsShowingUser="True"
+             Grid.Row="0"
+             Grid.ColumnSpan="2" />
+        <Button x:Name="BuildRoute"
+                Text="Build route"
+                Clicked="OnBuildClicked"
+                Grid.Row="1"
+                Grid.Column="0" />
+        <Button x:Name="ClearRoute"
+                Text="Clear route"
+                Clicked="OnClearClicked"
+                Grid.Row="1"
+                Grid.Column="1" />
+    </Grid>
+</ContentPage>
