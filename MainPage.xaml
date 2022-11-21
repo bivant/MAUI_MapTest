@@ -14,17 +14,8 @@
         </Grid.ColumnDefinitions>
         <Map x:Name="map"
              IsShowingUser="True"
+             MapClicked="OnMapClicked"
              Grid.Row="0"
              Grid.ColumnSpan="2" />
-        <Button x:Name="BuildRoute"
-                Text="Build route"
-                Clicked="OnBuildClicked"
-                Grid.Row="1"
-                Grid.Column="0" />
-        <Button x:Name="ClearRoute"
-                Text="Clear route"
-                Clicked="OnClearClicked"
-                Grid.Row="1"
-                Grid.Column="1" />
     </Grid>
 </ContentPage>
